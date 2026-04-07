@@ -106,29 +106,30 @@
             opacity: 0.85;
         }
         /* ✅ Responsive design pour téléphone */
-@media (max-width: 70px) {
-    header {
-        flex-direction: column;   /* logo au-dessus du texte */
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 15px;
-    }
+@media (max-width: 400px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+  }
 
-    header img.logo {
-        max-width: 70px !important; /* réduit le logo */
-        height: auto !important;    
-        margin: 0 auto 10px auto;   /* centre le logo */
-    }
+  header img.logo {
+    max-width: 60px !important; /* logo plus petit */
+    height: auto !important;
+    margin: 0 auto 8px auto;
+  }
 
-    header h1 {
-        font-size: 1.6em;           /* réduit le titre */
-    }
+  header h1 {
+    font-size: 1.4em; /* réduit le titre */
+  }
 
-    header p {
-        font-size: 1em;             /* réduit le sous-titre */
-    }
+  header p {
+    font-size: 0.9em; /* réduit le sous-titre */
+  }
 }
+
 
     /* Bouton hamburger visible sur mobile */
     .menu-toggle {
