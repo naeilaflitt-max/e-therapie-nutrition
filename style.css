@@ -105,3 +105,27 @@ footer {
     margin-top: 40px;
     font-size: 0.9em;
 }
+/* ✅ Responsive design pour téléphone */
+@media (max-width: 600px) {
+  header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+  }
+
+  .logo {
+    max-width: 80px !important;
+    height: auto !important;
+    margin: 0 auto 10px auto;
+  }
+
+  header h1 {
+    font-size: 1.6em;
+  }
+
+  header p {
+    font-size: 1em;
+  }
+}
