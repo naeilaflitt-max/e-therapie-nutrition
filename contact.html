@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>À propos</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            color: #141313;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;              /* aligne logo + texte */
+            align-items: center;        /* centre verticalement */
+            justify-content: space-between;    /* logo à gauche, texte centré */
+            background: linear-gradient(135deg, #00b897, #34495e);
+            color: #fff;
+            padding: 20px;
+        }
+
+        header img {
+            height: 200px;               /* taille du logo */
+            border-radius: 50%;         /* arrondi complet */
+            box-shadow: 0 0 12px rgb(227, 175, 53);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: absolute;         /* fixé à gauche */
+            left: 20px;
+            top: 10px;           /* descend le logo  */
+        }
+        header div {
+            margin: 0 auto;             /* centre le bloc texte */
+            text-align: center;
+        }
+
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+        header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #588480;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            background: #fff;
+            margin: 30px auto;
+            padding: 30px;
+            max-width: 900px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+        }
+
+        section h3 {
+            color: #27ae60;
+            margin-top: 25px;
+            font-size: 1.3em;
+        }
+
+        section p {
+            margin-bottom: 15px;
+        }
+
+        .contact-box {
+            background: #f9f9f9;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+            opacity: 0.85;
+        }
+       /* ✅ Responsive design pour téléphone */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;   /* logo au-dessus du texte */
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    header img {
+        position: static;         /* enlève absolute */
+        margin: 0 auto 15px auto; /* centre le logo */
+        height: 120px;            /* taille réduite */
+    }
+
+    /* Bouton hamburger visible sur mobile */
+    .menu-toggle {
+        display: block;
+        font-size: 2em;
+        cursor: pointer;
+        color: #fff;
+        background: none;
+        border: none;
+        margin: 10px auto;
+    }
+
+    nav {
+        flex-direction: column;   /* liens en colonne */
+        align-items: center;
+        display: none;            /* caché par défaut */
+        background-color: #588480;
+        padding: 10px;
+    }
+
+    nav.active {
+        display: flex;            /* affiché quand actif */
+    }
+
+    nav a {
+        margin: 10px 0;
+        display: block;
+    }
+
+    section {
+        padding: 20px;
+        margin: 15px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="images/logo01.png" alt="Logo Écrans et assiettes">
+    <div>
+        <h1>Écrans et assiettes</h1>
+        <p>La e-thérapie au secours des troubles alimentaires</p>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav id="menu">
+    <a href="index.html">Accueil</a>
+    <a href="tca.html">Comprendre les TCA</a>
+    <a href="etherapie.html">E-thérapie</a>
+    <a href="autoevaluation.html">Auto-évaluation</a>
+    <a href="suivi.html">Suivi</a>
+    <a href="contact.html">À propos</a>
+</nav>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+
+<section>
+    <h2>À propos du projet</h2>
+    <p>
+        Ce site a été conçu dans le cadre d’un <strong>projet académique de Master 1 Nutrition & Diététique</strong>. 
+        Il s’inscrit dans une démarche pédagogique visant à allier rigueur scientifique et accessibilité numérique.
+    </p>
+    <p>
+        L’objectif est de <strong>informer, sensibiliser et accompagner</strong> autour des troubles du comportement alimentaire (TCA), 
+        en mettant en lumière l’apport des outils numériques et de la e-thérapie dans leur prise en charge. 
+        Ce projet illustre comment la technologie peut devenir un véritable allié dans la santé mentale et nutritionnelle.
+    </p>
+
+    <h3>Nos valeurs</h3>
+    <p>
+        • <strong>Innovation</strong> : intégrer les outils numériques les plus récents pour enrichir la prise en charge.<br>
+        • <strong>Pédagogie</strong> : vulgariser les connaissances pour les rendre accessibles à tous.<br>
+        • <strong>Accessibilité</strong> : briser les barrières géographiques et sociales.<br>
+        • <strong>Accompagnement</strong> : proposer des ressources pratiques et interactives.
+    </p>
+
+    <h3>Contact</h3>
+    <div class="contact-box">
+        <p>📧 Email : nailaflit@yahoo.com</p>
+        <p>🏫 Université d’Oran – Master Nutrition & Diététique</p>
+        <p>📍 Oran, Algérie</p>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 – Projet académique | Master Nutrition & Diététique</p>
+</footer>
+
+</body>
+</html>

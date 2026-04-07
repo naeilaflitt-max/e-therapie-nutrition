@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Auto-évaluation TCA</title>
+    <style>
+     body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            color: #141313;
+            line-height: 1.6;
+        }
+
+        header {
+            display: flex;              /* aligne logo + texte */
+            align-items: center;        /* centre verticalement */
+            justify-content: space-between;    /* logo à gauche, texte centré */
+            background: linear-gradient(135deg, #00b897, #34495e);
+            color: #fff;
+            padding: 20px;
+        }
+
+        header img {
+            height: 200px;               /* taille du logo */
+            border-radius: 50%;         /* arrondi complet */
+            box-shadow: 0 0 12px rgb(227, 175, 53);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: absolute;         /* fixé à gauche */
+            left: 20px;
+            top: 10px;           /* descend le logo  */
+        }
+        header div {
+            margin: 0 auto;             /* centre le bloc texte */
+            text-align: center;
+        }
+
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+        }
+
+        header p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        nav {
+            background-color: #588480;
+            display: flex;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        section {
+            background: #fff;
+            margin: 30px auto;
+            padding: 30px;
+            max-width: 800px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #27ae60;
+            padding-bottom: 10px;
+        }
+
+        .question {
+            background: #f9f9f9;
+            border-left: 4px solid #27ae60;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 6px;
+        }
+
+        .question p {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #219150;
+        }
+
+        #tcaResultat {
+            margin-top: 20px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 6px;
+        }
+
+        .alert {
+            background-color: #fbe9e7;
+            color: #c0392b;
+        }
+
+        .ok {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+        /* ✅ Responsive design pour téléphone */
+@media (max-width: 600px) {
+    header {
+        flex-direction: column;   /* logo au-dessus du texte */
+        text-align: center;
+        padding: 30px 20px;
+    }
+
+    header img {
+        position: static;         /* enlève absolute */
+        margin: 0 auto 15px auto; /* centre le logo */
+        height: 120px;            /* taille réduite */
+    }
+
+    /* Bouton hamburger visible sur mobile */
+    .menu-toggle {
+        display: block;
+        font-size: 2em;
+        cursor: pointer;
+        color: #fff;
+        background: none;
+        border: none;
+        margin: 10px auto;
+    }
+
+    nav {
+        flex-direction: column;   /* liens en colonne */
+        align-items: center;
+        display: none;            /* caché par défaut */
+        background-color: #588480;
+        padding: 10px;
+    }
+
+    nav.active {
+        display: flex;            /* affiché quand actif */
+    }
+
+    nav a {
+        margin: 10px 0;
+        display: block;
+    }
+
+    section {
+        padding: 20px;
+        margin: 15px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="images/logo01.png" alt="Logo Écrans et assiettes">
+    <div>
+        <h1>Écrans et assiettes</h1>
+        <p>La e-thérapie au secours des troubles alimentaires</p>
+    </div>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+</header>
+
+<nav id="menu">
+    <a href="index.html">Accueil</a>
+    <a href="tca.html">Comprendre les TCA</a>
+    <a href="etherapie.html">E-thérapie</a>
+    <a href="autoevaluation.html">Auto-évaluation</a>
+    <a href="suivi.html">Suivi</a>
+    <a href="contact.html">À propos</a>
+</nav>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+<section>
+    <h2>Questionnaire de sensibilisation aux TCA</h2>
+    <p>⚠️ Ce questionnaire n’a pas de valeur médicale. Il vise uniquement à sensibiliser et à encourager la recherche d’aide professionnelle si nécessaire.</p>
+     <p>Attention particulière : La e-thérapie convient mieux aux formes légères à modérées de TCA. Les cas graves, avec dénutrition importante ou complications médicales, nécessitent impérativement une prise en charge hospitalière ou ambulatoire classique avec suivi médical étroit.</p>
+    <form id="tcaQuiz">
+        <div class="question">
+            <p>1. Limitez-vous fortement vos apports alimentaires ou sautez-vous régulièrement des repas ?</p>
+            <input type="radio" name="q1" value="anorexie"> Oui<br>
+            <input type="radio" name="q1" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>2. Craignez-vous de prendre du poids même si votre poids est déjà bas ?</p>
+            <input type="radio" name="q2" value="anorexie"> Oui<br>
+            <input type="radio" name="q2" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>3. Avez-vous des épisodes où vous mangez une grande quantité de nourriture en peu de temps, avec perte de contrôle ?</p>
+            <input type="radio" name="q3" value="boulimie"> Oui<br>
+            <input type="radio" name="q3" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>4. Utilisez-vous des moyens compensatoires (vomissements, laxatifs, sport excessif) après avoir mangé ?</p>
+            <input type="radio" name="q4" value="boulimie"> Oui<br>
+            <input type="radio" name="q4" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>5. Avez-vous des crises alimentaires sans comportements compensatoires ?</p>
+            <input type="radio" name="q5" value="hyperphagie"> Oui<br>
+            <input type="radio" name="q5" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>6. Êtes-vous obsédé(e) par l’idée de manger uniquement « sain » ?</p>
+            <input type="radio" name="q6" value="orthorexie"> Oui<br>
+            <input type="radio" name="q6" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>7. Passez-vous un temps excessif à faire de la musculation ou à penser à votre corps musclé ?</p>
+            <input type="radio" name="q7" value="bigorexie"> Oui<br>
+            <input type="radio" name="q7" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>8. Consommez-vous régulièrement des substances non alimentaires (terre, papier, craie…) ?</p>
+            <input type="radio" name="q8" value="pica"> Oui<br>
+            <input type="radio" name="q8" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>9. Régurgitez-vous volontairement vos aliments pour les remastiquer ou les rejeter ?</p>
+            <input type="radio" name="q9" value="merycisme"> Oui<br>
+            <input type="radio" name="q9" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>10. Êtes-vous préoccupé(e) de manière excessive par un défaut imaginaire ou minime de votre apparence physique ?</p>
+            <input type="radio" name="q10" value="dysmorphophobie"> Oui<br>
+            <input type="radio" name="q10" value=""> Non
+        </div>
+
+        <div class="question">
+            <p>11. Présentez-vous des comportements alimentaires atypiques qui ne correspondent pas aux catégories ci-dessus ?</p>
+            <input type="radio" name="q11" value="formes_atypiques"> Oui<br>
+            <input type="radio" name="q11" value=""> Non
+        </div>
+
+        <button type="button" onclick="analyserTCA()">Voir le résultat</button>
+    </form>
+
+    <div id="tcaResultat"></div>
+</section>
+
+<footer>
+    <p>© 2026 – Projet académique | Master Nutrition & Diététique</p>
+</footer>
+
+<script>
+function analyserTCA() {
+    let maladies = {
+        anorexie: 0,
+        boulimie: 0,
+        hyperphagie: 0,
+        orthorexie: 0,
+        bigorexie: 0,
+        pica: 0,
+        merycisme: 0,
+        dysmorphophobie: 0,
+        formes_atypiques: 0
+    };
+
+    for (let i = 1; i <= 11; i++) {
+        let reponse = document.querySelector('input[name="q' + i + '"]:checked');
+        if (reponse && reponse.value) {
+            maladies[reponse.value]++;
+        }
+    }
+
+    // ✅ Affichage du résultat
+    let resultat = [];
+    for (let trouble in maladies) {
+        if (maladies[trouble] > 0) {
+            resultat.push(trouble);
+        }
+    }
+
+    let divResultat = document.getElementById("tcaResultat");
+    if (resultat.length > 0) {
+        divResultat.className = "alert";
+        divResultat.innerHTML = "⚠️ Signes possibles de : <b>" + resultat.join(", ") + "</b>";
+    } else {
+        divResultat.className = "ok";
+        divResultat.innerHTML = "✅ Aucun signe détecté par ce questionnaire.";
+    }
+}
+</script>
+
