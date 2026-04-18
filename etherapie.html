@@ -126,17 +126,19 @@
         }
         /* ✅ Responsive design pour téléphone */
 @media (max-width: 600px) {
-    header {
-        flex-direction: column;   /* logo au-dessus du texte */
-        text-align: center;
-        padding: 30px 20px;
-    }
+      header {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+  }
 
-    header img {
-        position: static;         /* enlève absolute */
-        margin: 0 auto 15px auto; /* centre le logo */
-        height: 120px;            /* taille réduite */
-    }
+  header img.logo {
+    max-width: 60px !important; /* logo plus petit */
+    height: auto !important;
+    margin: 0 auto 8px auto;
+  }
 
     /* Bouton hamburger visible sur mobile */
     .menu-toggle {
