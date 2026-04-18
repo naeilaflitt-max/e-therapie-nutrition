@@ -14,26 +14,25 @@
         }
 
         header {
-            display: flex;              /* aligne logo + texte */
-            align-items: center;        /* centre verticalement */
-            justify-content: space-between;    /* logo à gauche, texte centré */
-            background: linear-gradient(135deg, #00b897, #34495e);
-            color: #fff;
-            padding: 20px;
+    display: flex;
+    align-items: center;       /* aligne verticalement */
+    justify-content: space-between; /* logo à gauche, titre au milieu, bouton à droite */
+    background: linear-gradient(135deg, #00b897, #34495e);
+    color: #fff;
+    padding: 20px;
+    position: relative;
         }
 
         header img {
-            height: 200px;               /* taille du logo */
-            border-radius: 50%;         /* arrondi complet */
-            box-shadow: 0 0 12px rgb(227, 175, 53);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: absolute;         /* fixé à gauche */
-            left: 20px;
-            top: 10px;           /* descend le logo  */
+    height: 120px;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgb(227, 175, 53);
+    margin-right: 20px; /* espace entre logo et texte */
         }
+        
         header div {
-            margin: 0 auto;             /* centre le bloc texte */
-            text-align: center;
+    flex: 1;                   /* occupe l’espace central */
+    text-align: center;        /* centre le titre et le sous-titre */
         }
 
 
