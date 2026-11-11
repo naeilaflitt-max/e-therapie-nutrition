@@ -508,8 +508,38 @@ Tu mérites de prendre soin de toi.
 
 <script>
 
-function showMessage(){
-document.getElementById("emotionMessage").style.display="block";
+function showMessage(type){
+
+const message =
+document.getElementById("emotionMessage");
+
+message.style.display = "block";
+
+if(type === "bien"){
+message.innerHTML =
+"🌟 C'est formidable ! Continue à prendre soin de toi et à célébrer tes progrès.";
+}
+
+else if(type === "triste"){
+message.innerHTML =
+"💜 La tristesse est une émotion normale. N'hésite pas à écrire ce que tu ressens ou à parler à quelqu'un de confiance.";
+}
+
+else if(type === "stress"){
+message.innerHTML =
+"🫁 Le stress peut influencer l'alimentation. Prends quelques instants pour respirer calmement.";
+}
+
+else if(type === "peur"){
+message.innerHTML =
+"🍽️ Ton corps a besoin d'énergie pour fonctionner. Essaie d'avancer à ton rythme sans te juger.";
+}
+
+else if(type === "crise"){
+message.innerHTML =
+"🌸 Cette envie est temporaire. Essaie la respiration guidée ou contacte une personne de confiance.";
+}
+
 }
 
 function saveJournal(){
