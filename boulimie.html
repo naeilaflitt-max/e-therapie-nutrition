@@ -596,6 +596,9 @@ document.getElementById("score").innerHTML=
 "🎉 Votre score : "+score+"/3";
 }
 
+let compteur;
+let respiration;
+
 function startBreathing(){
 
 let flower=document.getElementById("flower");
@@ -604,29 +607,39 @@ let timer=document.getElementById("timer");
 
 let temps=60;
 
+clearInterval(compteur);
+clearInterval(respiration);
+
+timer.innerHTML="60";
+
 instruction.innerHTML="🫁 Inspire profondément";
 
-const compteur=setInterval(()=>{
+flower.classList.remove("inhale","exhale");
+flower.classList.add("inhale");
+
+compteur=setInterval(()=>{
 
 temps--;
+
 timer.innerHTML=temps;
 
 if(temps<=0){
 
 clearInterval(compteur);
+clearInterval(respiration);
 
 instruction.innerHTML=
 "🌷 Bravo ! Tu as terminé cette séance.";
 
 timer.innerHTML="✓";
 
+flower.classList.remove("inhale","exhale");
+
 }
 
 },1000);
 
-flower.classList.add("inhale");
-
-setInterval(()=>{
+respiration=setInterval(()=>{
 
 flower.classList.toggle("inhale");
 flower.classList.toggle("exhale");
@@ -640,7 +653,18 @@ flower.classList.contains("inhale")
 
 }
 
-</script>
+function stopBreathing(){
 
-</body>
-</html>
+clearInterval(compteur);
+clearInterval(respiration);
+
+document.getElementById("flower")
+.classList.remove("inhale","exhale");
+
+document.getElementById("instruction").innerHTML=
+"🌸 Séance arrêtée";
+
+document.getElementById("timer").innerHTML=
+"60";
+
+}
