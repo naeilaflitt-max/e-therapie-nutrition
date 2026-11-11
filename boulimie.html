@@ -1,175 +1,278 @@
 <!DOCTYPE html>
 <html lang="fr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Parcours ETP - TCA</title>
+<title>Bouli'Mieux | Écrans et Assiettes</title>
 
 <style>
 
-:root{
---primary:#2c7be5;
---secondary:#6c63ff;
---success:#28a745;
---warning:#ffc107;
---danger:#dc3545;
---light:#f5f9ff;
---dark:#2b2d42;
-}
-
-*{
+body{
+font-family:'Segoe UI',Arial,sans-serif;
+background:#f4f6f9;
 margin:0;
 padding:0;
-box-sizing:border-box;
-}
-
-body{
-font-family:'Segoe UI',sans-serif;
-background:var(--light);
-color:#333;
+color:#141313;
 line-height:1.6;
 }
 
+/* HEADER */
+
 header{
-background:linear-gradient(135deg,var(--primary),var(--secondary));
+display:flex;
+align-items:center;
+justify-content:space-between;
+background:linear-gradient(135deg,#00b897,#34495e);
 color:white;
-padding:50px 20px;
+padding:20px;
+}
+
+header img{
+height:120px;
+border-radius:50%;
+box-shadow:0 0 12px rgb(227,175,53);
+}
+
+header div{
 text-align:center;
+flex:1;
 }
 
 header h1{
-font-size:2.5rem;
-margin-bottom:10px;
+margin:0;
+font-size:2.5em;
 }
 
 header p{
-font-size:1.1rem;
-max-width:800px;
-margin:auto;
+margin:5px 0;
 }
 
-.container{
-max-width:1100px;
-margin:auto;
-padding:30px 20px;
-}
-
-.card{
-background:white;
-padding:25px;
-margin-bottom:25px;
-border-radius:15px;
-box-shadow:0 4px 15px rgba(0,0,0,0.08);
-}
-
-h2{
-color:var(--primary);
-margin-bottom:15px;
-}
-
-.progress-container{
-background:#ddd;
-height:25px;
-border-radius:20px;
-overflow:hidden;
-margin-top:15px;
-}
-
-.progress-bar{
-height:100%;
-width:0%;
-background:linear-gradient(to right,#00c853,#64dd17);
-transition:0.6s;
-text-align:center;
-color:white;
-font-weight:bold;
-}
-
-.question{
-margin-bottom:20px;
+nav{
+background:#588480;
+display:flex;
+justify-content:center;
 padding:15px;
-background:#f8fbff;
-border-radius:10px;
+flex-wrap:wrap;
 }
 
-.question p{
+nav a{
+color:white;
+text-decoration:none;
+margin:10px;
 font-weight:600;
+}
+
+nav a:hover{
+color:#d5f8f0;
+}
+
+/* HERO */
+
+.hero{
+background:linear-gradient(135deg,#dff9f5,#f8ebff);
+padding:60px 20px;
+text-align:center;
+}
+
+.hero h2{
+font-size:3em;
+color:#2c3e50;
 margin-bottom:10px;
 }
 
-input[type="radio"]{
-margin-right:5px;
+.hero p{
+max-width:800px;
+margin:auto;
+font-size:1.15em;
 }
 
-button{
-background:var(--primary);
+.btn{
+display:inline-block;
+margin-top:25px;
+padding:15px 30px;
+background:#00b897;
 color:white;
-border:none;
-padding:12px 25px;
-border-radius:8px;
-font-size:16px;
-cursor:pointer;
-}
-
-button:hover{
-background:#1864d6;
-}
-
-.result-box{
-display:none;
-margin-top:20px;
-padding:20px;
-border-radius:10px;
+text-decoration:none;
+border-radius:50px;
 font-weight:bold;
 }
 
-.low{
-background:#d4edda;
-color:#155724;
+/* SECTIONS */
+
+section{
+background:white;
+margin:25px auto;
+padding:30px;
+max-width:1000px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
 }
 
-.medium{
-background:#fff3cd;
-color:#856404;
+section h2{
+color:#2c3e50;
+border-bottom:2px solid #00b897;
+padding-bottom:10px;
 }
 
-.high{
-background:#f8d7da;
-color:#721c24;
+/* EMOTIONS */
+
+.emotions{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:20px;
 }
 
-.objective{
+.emotion{
+background:#eefcf9;
+padding:20px;
+border-radius:15px;
+text-align:center;
+cursor:pointer;
+transition:0.3s;
+}
+
+.emotion:hover{
+transform:translateY(-5px);
+}
+
+.message{
+margin-top:20px;
+padding:15px;
+background:#f9fdfb;
+border-left:5px solid #00b897;
+display:none;
+}
+
+/* OBJECTIFS */
+
+.objectifs label{
+display:block;
 margin:12px 0;
 }
 
-ul{
-padding-left:20px;
+/* JOURNAL */
+
+textarea{
+width:100%;
+height:180px;
+padding:15px;
+border-radius:10px;
+border:1px solid #ccc;
 }
 
-.commitment{
-background:#eef5ff;
-padding:20px;
-border-left:5px solid var(--primary);
-border-radius:8px;
-}
-
-footer{
-margin-top:40px;
-background:var(--dark);
+.savebtn{
+margin-top:10px;
+padding:10px 20px;
+border:none;
+background:#00b897;
 color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* RESPIRATION */
+
+.breathing{
 text-align:center;
+}
+
+.flower{
+width:150px;
+height:150px;
+border-radius:50%;
+margin:20px auto;
+background:radial-gradient(circle,#fff,#f5c8ff,#cfe8ff);
+box-shadow:0 0 25px rgba(0,184,151,0.4);
+}
+
+.inhale{
+animation:inhale 4s forwards;
+}
+
+.exhale{
+animation:exhale 6s forwards;
+}
+
+@keyframes inhale{
+from{transform:scale(1);}
+to{transform:scale(1.4);}
+}
+
+@keyframes exhale{
+from{transform:scale(1.4);}
+to{transform:scale(1);}
+}
+
+.timer{
+font-size:2em;
+font-weight:bold;
+color:#00b897;
+}
+
+/* OUTILS */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:20px;
+}
+
+.card{
+background:#f8fcfb;
 padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+/* BADGES */
+
+.badges{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+justify-content:center;
 }
 
 .badge{
-display:inline-block;
-padding:8px 15px;
-background:var(--primary);
+background:#eefcf9;
+padding:15px 20px;
+border-radius:20px;
+font-weight:bold;
+}
+
+/* QUIZ */
+
+.quiz-question{
+margin-bottom:20px;
+}
+
+.resultatQuiz{
+font-weight:bold;
+font-size:1.2em;
+margin-top:15px;
+}
+
+/* FOOTER */
+
+footer{
+background:#2c3e50;
 color:white;
-border-radius:30px;
-margin-top:10px;
+padding:20px;
+text-align:center;
+margin-top:40px;
+}
+
+@media(max-width:768px){
+
+header{
+flex-direction:column;
+}
+
+.hero h2{
+font-size:2em;
+}
+
 }
 
 </style>
@@ -179,252 +282,306 @@ margin-top:10px;
 
 <header>
 
-<h1>🎯 Parcours d'Éducation Thérapeutique</h1>
+<img src="images/logo01.png" alt="Logo">
 
-<p>
-Mieux comprendre les troubles du comportement alimentaire,
-identifier les signes d'alerte et développer des compétences
-pour préserver sa santé.
-</p>
-
-<div class="badge">
-ETP - Troubles du Comportement Alimentaire
+<div>
+<h1>Écrans et Assiettes</h1>
+<p>La e-thérapie au secours des troubles alimentaires</p>
 </div>
 
 </header>
 
-<div class="container">
+<nav>
+<a href="index.html">Accueil</a>
+<a href="tca.html">Comprendre les TCA</a>
+<a href="boulimie.html">Bouli'Mieux</a>
+<a href="autoevaluation.html">Auto-évaluation</a>
+<a href="suivi.html">Suivi</a>
+<a href="contact.html">À propos</a>
+</nav>
 
-<div class="card">
+<div class="hero">
 
-<h2>📚 Objectifs de cette activité</h2>
-
-<ul>
-<li>Reconnaître les comportements à risque.</li>
-<li>Améliorer ses connaissances nutritionnelles.</li>
-<li>Développer son autonomie dans la gestion de sa santé.</li>
-<li>Savoir quand demander de l'aide.</li>
-<li>Prévenir les complications des TCA.</li>
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>📝 Auto-évaluation</h2>
+<h2>🌸 Bouli'Mieux</h2>
 
 <p>
-Répondez aux questions suivantes afin d'évaluer vos habitudes.
+La boulimie est une maladie et non un manque de volonté.
+Cet espace a été conçu pour t'aider à comprendre ce que tu vis,
+développer des stratégies positives et progresser à ton rythme.
 </p>
 
-<br>
-
-<div class="question">
-<p>1. Sautes-tu souvent des repas ?</p>
-<label><input type="radio" name="q1" value="1"> Oui</label>
-<label><input type="radio" name="q1" value="0"> Non</label>
-</div>
-
-<div class="question">
-<p>2. Es-tu souvent préoccupé(e) par ton poids ?</p>
-<label><input type="radio" name="q2" value="1"> Oui</label>
-<label><input type="radio" name="q2" value="0"> Non</label>
-</div>
-
-<div class="question">
-<p>3. Ressens-tu une perte de contrôle lorsque tu manges ?</p>
-<label><input type="radio" name="q3" value="1"> Oui</label>
-<label><input type="radio" name="q3" value="0"> Non</label>
-</div>
-
-<div class="question">
-<p>4. Évites-tu certains aliments par peur de grossir ?</p>
-<label><input type="radio" name="q4" value="1"> Oui</label>
-<label><input type="radio" name="q4" value="0"> Non</label>
-</div>
-
-<div class="question">
-<p>5. Ton image corporelle influence-t-elle ton humeur ?</p>
-<label><input type="radio" name="q5" value="1"> Oui</label>
-<label><input type="radio" name="q5" value="0"> Non</label>
-</div>
-
-<button onclick="calculateScore()">
-Analyser mes réponses
-</button>
-
-<div id="result" class="result-box"></div>
+<a href="#parcours" class="btn">Commencer mon parcours</a>
 
 </div>
 
-<div class="card">
+<section id="parcours">
+
+<h2>💜 Comprendre la boulimie</h2>
+
+<p>
+La boulimie est un trouble du comportement alimentaire caractérisé par des épisodes de consommation excessive d'aliments accompagnés d'une perte de contrôle. Ces épisodes sont souvent suivis d'un sentiment de culpabilité et peuvent s'accompagner de comportements compensatoires.
+</p>
+
+<p>
+La boulimie est une maladie qui nécessite compréhension, accompagnement et prise en charge adaptée.
+</p>
+
+</section>
+
+<section>
+
+<h2>😊 Comment te sens-tu aujourd'hui ?</h2>
+
+<div class="emotions">
+
+<div class="emotion" onclick="showMessage()">😊 Je vais bien</div>
+<div class="emotion" onclick="showMessage()">😔 Je suis triste</div>
+<div class="emotion" onclick="showMessage()">😟 Je suis stressé(e)</div>
+<div class="emotion" onclick="showMessage()">🍽️ J'ai peur de manger</div>
+<div class="emotion" onclick="showMessage()">💭 J'ai envie de faire une crise</div>
+
+</div>
+
+<div id="emotionMessage" class="message">
+Tu n'es pas seul(e). Cette émotion est temporaire. Respire profondément et prends soin de toi.
+</div>
+
+</section>
+
+<section>
 
 <h2>🎯 Mes objectifs personnels</h2>
 
-<label class="objective">
-<input type="checkbox"> Prendre 3 repas équilibrés par jour
-</label><br>
+<div class="objectifs">
 
-<label class="objective">
-<input type="checkbox"> Réduire les comportements restrictifs
-</label><br>
-
-<label class="objective">
-<input type="checkbox"> Mieux gérer mes émotions
-</label><br>
-
-<label class="objective">
-<input type="checkbox"> Améliorer mon estime de soi
-</label><br>
-
-<label class="objective">
-<input type="checkbox"> Consulter un professionnel si nécessaire
-</label>
+<label><input type="checkbox"> Retrouver des repas réguliers</label>
+<label><input type="checkbox"> Réduire les crises alimentaires</label>
+<label><input type="checkbox"> Réduire mon stress</label>
+<label><input type="checkbox"> Améliorer mon image corporelle</label>
+<label><input type="checkbox"> Mieux comprendre mes émotions</label>
 
 </div>
 
-<div class="card">
+</section>
 
-<h2>📈 Progression personnelle</h2>
+<section>
 
-<p>
-Suivez votre progression dans votre parcours éducatif.
-</p>
+<h2>📝 Mon journal émotionnel</h2>
 
-<div class="progress-container">
-<div id="progressBar" class="progress-bar">0%</div>
-</div>
+<textarea id="journal" placeholder="Écris ce que tu ressens aujourd'hui..."></textarea>
 
-<br>
-
-<button onclick="increaseProgress()">
-J'ai terminé une étape ✅
+<button class="savebtn" onclick="saveJournal()">
+Enregistrer
 </button>
 
+</section>
+
+<section class="breathing">
+
+<h2>🌸 Respiration guidée</h2>
+
+<div class="flower" id="flower"></div>
+
+<h3 id="instruction">
+Clique sur démarrer
+</h3>
+
+<div class="timer" id="timer">60</div>
+
+<button class="savebtn" onclick="startBreathing()">
+Démarrer
+</button>
+
+</section>
+
+<section>
+
+<h2>🧰 Boîte à outils anti-crise</h2>
+
+<div class="cards">
+
+<div class="card">
+🫁<br><strong>Respirer</strong><br>
+Prendre 1 minute pour respirer calmement.
 </div>
 
 <div class="card">
-
-<h2>💡 Conseils pratiques</h2>
-
-<ul>
-<li>Mangez dans un environnement calme.</li>
-<li>Respectez votre sensation de faim et de satiété.</li>
-<li>Évitez les régimes restrictifs sans suivi professionnel.</li>
-<li>Dormez suffisamment.</li>
-<li>Pratiquez une activité physique adaptée.</li>
-<li>Parlez de vos difficultés à une personne de confiance.</li>
-</ul>
-
+🚶<br><strong>Marcher</strong><br>
+Faire quelques minutes de marche.
 </div>
 
 <div class="card">
+🎵<br><strong>Musique</strong><br>
+Écouter sa musique préférée.
+</div>
 
-<h2>🧠 Compétence ETP : Identifier ses émotions</h2>
+<div class="card">
+☎️<br><strong>Parler</strong><br>
+Contacter une personne de confiance.
+</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>🌱 Mon jardin de progrès</h2>
+
+<div class="badges">
+
+<div class="badge">🌱 Première connexion</div>
+<div class="badge">🌷 Journal rempli</div>
+<div class="badge">🌸 Défi réalisé</div>
+<div class="badge">🌺 Une semaine d'efforts</div>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>✅ Quiz ETP</h2>
+
+<div class="quiz-question">
+1. La boulimie est un manque de volonté.<br>
+<input type="radio" name="q1" value="0"> Vrai
+<input type="radio" name="q1" value="1"> Faux
+</div>
+
+<div class="quiz-question">
+2. Les émotions peuvent influencer l'alimentation.<br>
+<input type="radio" name="q2" value="1"> Vrai
+<input type="radio" name="q2" value="0"> Faux
+</div>
+
+<div class="quiz-question">
+3. Demander de l'aide est un signe de faiblesse.<br>
+<input type="radio" name="q3" value="0"> Vrai
+<input type="radio" name="q3" value="1"> Faux
+</div>
+
+<button class="savebtn" onclick="corrigerQuiz()">
+Corriger
+</button>
+
+<div id="score" class="resultatQuiz"></div>
+
+</section>
+
+<section>
+
+<h2>👩‍⚕️ Quand demander de l'aide ?</h2>
+
+<p>✔ Médecin</p>
+<p>✔ Diététicien(ne)</p>
+<p>✔ Psychologue</p>
+<p>✔ Famille et proches</p>
+
+<p><strong>Demander de l'aide est une force et constitue une étape importante vers le mieux-être.</strong></p>
+
+</section>
+
+<section>
+
+<h2>💜 Message final</h2>
 
 <p>
-Avant chaque repas, posez-vous cette question :
+Une crise ne définit pas qui tu es.
 </p>
-
-<br>
-
-<div class="commitment">
-
-"Suis-je en train de manger parce que j'ai faim,
-ou parce que je suis stressé(e), triste ou ennuyé(e) ?"
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2>🤝 Mon engagement</h2>
 
 <p>
-
-Je m'engage à prendre soin de ma santé,
-à respecter mon corps et à demander de l'aide
-si je rencontre des difficultés.
-
+Chaque petit progrès mérite d'être célébré.
 </p>
 
-</div>
+<p>
+Tu mérites de prendre soin de toi.
+</p>
 
-</div>
+</section>
 
 <footer>
-
-Projet pédagogique d'Éducation Thérapeutique du Patient (ETP)<br>
-Troubles du Comportement Alimentaire
-
+© 2026 – Projet académique | Master Nutrition & Diététique
 </footer>
 
 <script>
 
-function calculateScore(){
-
-let score = 0;
-
-const questions = ['q1','q2','q3','q4','q5'];
-
-for(let q of questions){
-
-const response = document.querySelector(`input[name="${q}"]:checked`);
-
-if(!response){
-alert("Veuillez répondre à toutes les questions.");
-return;
+function showMessage(){
+document.getElementById("emotionMessage").style.display="block";
 }
 
-score += parseInt(response.value);
+function saveJournal(){
+
+localStorage.setItem(
+"journalBoulimie",
+document.getElementById("journal").value
+);
+
+alert("Journal enregistré ✅");
 }
 
-const result = document.getElementById("result");
+window.onload=function(){
 
-result.style.display = "block";
+let texte=localStorage.getItem("journalBoulimie");
 
-if(score <= 1){
-
-result.className = "result-box low";
-
-result.innerHTML =
-"✅ Risque faible : vos habitudes ne montrent pas de signe majeur d'alerte. Continuez à maintenir une relation équilibrée avec l'alimentation.";
-
-}
-
-else if(score <= 3){
-
-result.className = "result-box medium";
-
-result.innerHTML =
-"⚠️ Niveau de vigilance : certains comportements méritent une attention particulière. Discutez-en avec un professionnel si nécessaire.";
-
-}
-
-else{
-
-result.className = "result-box high";
-
-result.innerHTML =
-"🔴 Niveau d'alerte : plusieurs signes évocateurs d'un trouble du comportement alimentaire sont présents. Une consultation professionnelle est recommandée.";
-
+if(texte){
+document.getElementById("journal").value=texte;
 }
 
 }
 
-let progress = 0;
+function corrigerQuiz(){
 
-function increaseProgress(){
+let score=0;
 
-if(progress < 100){
+document.querySelectorAll("input[type=radio]:checked")
+.forEach(radio=>score+=parseInt(radio.value));
 
-progress += 20;
+document.getElementById("score").innerHTML=
+"🎉 Votre score : "+score+"/3";
+}
 
-document.getElementById("progressBar").style.width = progress + "%";
-document.getElementById("progressBar").textContent = progress + "%";
+function startBreathing(){
+
+let flower=document.getElementById("flower");
+let instruction=document.getElementById("instruction");
+let timer=document.getElementById("timer");
+
+let temps=60;
+
+instruction.innerHTML="🫁 Inspire profondément";
+
+const compteur=setInterval(()=>{
+
+temps--;
+timer.innerHTML=temps;
+
+if(temps<=0){
+
+clearInterval(compteur);
+
+instruction.innerHTML=
+"🌷 Bravo ! Tu as terminé cette séance.";
+
+timer.innerHTML="✓";
 
 }
+
+},1000);
+
+flower.classList.add("inhale");
+
+setInterval(()=>{
+
+flower.classList.toggle("inhale");
+flower.classList.toggle("exhale");
+
+instruction.innerHTML=
+flower.classList.contains("inhale")
+? "🫁 Inspire profondément"
+: "😌 Expire doucement";
+
+},5000);
 
 }
 
