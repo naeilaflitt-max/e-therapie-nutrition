@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Parcours ETP - TCA</title>
+
+<style>
+
+:root{
+--primary:#2c7be5;
+--secondary:#6c63ff;
+--success:#28a745;
+--warning:#ffc107;
+--danger:#dc3545;
+--light:#f5f9ff;
+--dark:#2b2d42;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Segoe UI',sans-serif;
+background:var(--light);
+color:#333;
+line-height:1.6;
+}
+
+header{
+background:linear-gradient(135deg,var(--primary),var(--secondary));
+color:white;
+padding:50px 20px;
+text-align:center;
+}
+
+header h1{
+font-size:2.5rem;
+margin-bottom:10px;
+}
+
+header p{
+font-size:1.1rem;
+max-width:800px;
+margin:auto;
+}
+
+.container{
+max-width:1100px;
+margin:auto;
+padding:30px 20px;
+}
+
+.card{
+background:white;
+padding:25px;
+margin-bottom:25px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+h2{
+color:var(--primary);
+margin-bottom:15px;
+}
+
+.progress-container{
+background:#ddd;
+height:25px;
+border-radius:20px;
+overflow:hidden;
+margin-top:15px;
+}
+
+.progress-bar{
+height:100%;
+width:0%;
+background:linear-gradient(to right,#00c853,#64dd17);
+transition:0.6s;
+text-align:center;
+color:white;
+font-weight:bold;
+}
+
+.question{
+margin-bottom:20px;
+padding:15px;
+background:#f8fbff;
+border-radius:10px;
+}
+
+.question p{
+font-weight:600;
+margin-bottom:10px;
+}
+
+input[type="radio"]{
+margin-right:5px;
+}
+
+button{
+background:var(--primary);
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1864d6;
+}
+
+.result-box{
+display:none;
+margin-top:20px;
+padding:20px;
+border-radius:10px;
+font-weight:bold;
+}
+
+.low{
+background:#d4edda;
+color:#155724;
+}
+
+.medium{
+background:#fff3cd;
+color:#856404;
+}
+
+.high{
+background:#f8d7da;
+color:#721c24;
+}
+
+.objective{
+margin:12px 0;
+}
+
+ul{
+padding-left:20px;
+}
+
+.commitment{
+background:#eef5ff;
+padding:20px;
+border-left:5px solid var(--primary);
+border-radius:8px;
+}
+
+footer{
+margin-top:40px;
+background:var(--dark);
+color:white;
+text-align:center;
+padding:20px;
+}
+
+.badge{
+display:inline-block;
+padding:8px 15px;
+background:var(--primary);
+color:white;
+border-radius:30px;
+margin-top:10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+
+<h1>🎯 Parcours d'Éducation Thérapeutique</h1>
+
+<p>
+Mieux comprendre les troubles du comportement alimentaire,
+identifier les signes d'alerte et développer des compétences
+pour préserver sa santé.
+</p>
+
+<div class="badge">
+ETP - Troubles du Comportement Alimentaire
+</div>
+
+</header>
+
+<div class="container">
+
+<div class="card">
+
+<h2>📚 Objectifs de cette activité</h2>
+
+<ul>
+<li>Reconnaître les comportements à risque.</li>
+<li>Améliorer ses connaissances nutritionnelles.</li>
+<li>Développer son autonomie dans la gestion de sa santé.</li>
+<li>Savoir quand demander de l'aide.</li>
+<li>Prévenir les complications des TCA.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>📝 Auto-évaluation</h2>
+
+<p>
+Répondez aux questions suivantes afin d'évaluer vos habitudes.
+</p>
+
+<br>
+
+<div class="question">
+<p>1. Sautes-tu souvent des repas ?</p>
+<label><input type="radio" name="q1" value="1"> Oui</label>
+<label><input type="radio" name="q1" value="0"> Non</label>
+</div>
+
+<div class="question">
+<p>2. Es-tu souvent préoccupé(e) par ton poids ?</p>
+<label><input type="radio" name="q2" value="1"> Oui</label>
+<label><input type="radio" name="q2" value="0"> Non</label>
+</div>
+
+<div class="question">
+<p>3. Ressens-tu une perte de contrôle lorsque tu manges ?</p>
+<label><input type="radio" name="q3" value="1"> Oui</label>
+<label><input type="radio" name="q3" value="0"> Non</label>
+</div>
+
+<div class="question">
+<p>4. Évites-tu certains aliments par peur de grossir ?</p>
+<label><input type="radio" name="q4" value="1"> Oui</label>
+<label><input type="radio" name="q4" value="0"> Non</label>
+</div>
+
+<div class="question">
+<p>5. Ton image corporelle influence-t-elle ton humeur ?</p>
+<label><input type="radio" name="q5" value="1"> Oui</label>
+<label><input type="radio" name="q5" value="0"> Non</label>
+</div>
+
+<button onclick="calculateScore()">
+Analyser mes réponses
+</button>
+
+<div id="result" class="result-box"></div>
+
+</div>
+
+<div class="card">
+
+<h2>🎯 Mes objectifs personnels</h2>
+
+<label class="objective">
+<input type="checkbox"> Prendre 3 repas équilibrés par jour
+</label><br>
+
+<label class="objective">
+<input type="checkbox"> Réduire les comportements restrictifs
+</label><br>
+
+<label class="objective">
+<input type="checkbox"> Mieux gérer mes émotions
+</label><br>
+
+<label class="objective">
+<input type="checkbox"> Améliorer mon estime de soi
+</label><br>
+
+<label class="objective">
+<input type="checkbox"> Consulter un professionnel si nécessaire
+</label>
+
+</div>
+
+<div class="card">
+
+<h2>📈 Progression personnelle</h2>
+
+<p>
+Suivez votre progression dans votre parcours éducatif.
+</p>
+
+<div class="progress-container">
+<div id="progressBar" class="progress-bar">0%</div>
+</div>
+
+<br>
+
+<button onclick="increaseProgress()">
+J'ai terminé une étape ✅
+</button>
+
+</div>
+
+<div class="card">
+
+<h2>💡 Conseils pratiques</h2>
+
+<ul>
+<li>Mangez dans un environnement calme.</li>
+<li>Respectez votre sensation de faim et de satiété.</li>
+<li>Évitez les régimes restrictifs sans suivi professionnel.</li>
+<li>Dormez suffisamment.</li>
+<li>Pratiquez une activité physique adaptée.</li>
+<li>Parlez de vos difficultés à une personne de confiance.</li>
+</ul>
+
+</div>
+
+<div class="card">
+
+<h2>🧠 Compétence ETP : Identifier ses émotions</h2>
+
+<p>
+Avant chaque repas, posez-vous cette question :
+</p>
+
+<br>
+
+<div class="commitment">
+
+"Suis-je en train de manger parce que j'ai faim,
+ou parce que je suis stressé(e), triste ou ennuyé(e) ?"
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>🤝 Mon engagement</h2>
+
+<p>
+
+Je m'engage à prendre soin de ma santé,
+à respecter mon corps et à demander de l'aide
+si je rencontre des difficultés.
+
+</p>
+
+</div>
+
+</div>
+
+<footer>
+
+Projet pédagogique d'Éducation Thérapeutique du Patient (ETP)<br>
+Troubles du Comportement Alimentaire
+
+</footer>
+
+<script>
+
+function calculateScore(){
+
+let score = 0;
+
+const questions = ['q1','q2','q3','q4','q5'];
+
+for(let q of questions){
+
+const response = document.querySelector(`input[name="${q}"]:checked`);
+
+if(!response){
+alert("Veuillez répondre à toutes les questions.");
+return;
+}
+
+score += parseInt(response.value);
+}
+
+const result = document.getElementById("result");
+
+result.style.display = "block";
+
+if(score <= 1){
+
+result.className = "result-box low";
+
+result.innerHTML =
+"✅ Risque faible : vos habitudes ne montrent pas de signe majeur d'alerte. Continuez à maintenir une relation équilibrée avec l'alimentation.";
+
+}
+
+else if(score <= 3){
+
+result.className = "result-box medium";
+
+result.innerHTML =
+"⚠️ Niveau de vigilance : certains comportements méritent une attention particulière. Discutez-en avec un professionnel si nécessaire.";
+
+}
+
+else{
+
+result.className = "result-box high";
+
+result.innerHTML =
+"🔴 Niveau d'alerte : plusieurs signes évocateurs d'un trouble du comportement alimentaire sont présents. Une consultation professionnelle est recommandée.";
+
+}
+
+}
+
+let progress = 0;
+
+function increaseProgress(){
+
+if(progress < 100){
+
+progress += 20;
+
+document.getElementById("progressBar").style.width = progress + "%";
+document.getElementById("progressBar").textContent = progress + "%";
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
