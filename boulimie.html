@@ -561,6 +561,46 @@ Tu mérites de prendre soin de toi.
 
 </section>
 
+<section>
+
+<h2>🚨 Mon plan anti-crise</h2>
+
+<p>
+Choisis une action pour t'aider à traverser ce moment difficile.
+</p>
+
+<div class="cards">
+
+<div class="card" onclick="showCrisisTip('respirer')">
+🫁
+<h3>Respirer</h3>
+</div>
+
+<div class="card" onclick="showCrisisTip('eau')">
+💧
+<h3>Boire de l'eau</h3>
+</div>
+
+<div class="card" onclick="showCrisisTip('marcher')">
+🚶
+<h3>Marcher</h3>
+</div>
+
+<div class="card" onclick="showCrisisTip('appeler')">
+📞
+<h3>Contacter quelqu'un</h3>
+</div>
+
+<div class="card" onclick="showCrisisTip('journal')">
+✍️
+<h3>Écrire</h3>
+</div>
+
+</div>
+
+<div id="crisisMessage" class="message"></div>
+
+</section>
 <footer>
 © 2026 – Projet académique | Master Nutrition & Diététique
 </footer>
@@ -790,6 +830,49 @@ message.innerHTML =
 "🌸🦋 Je cultive mon bien-être";
 
 niveauArbre = 6;
+
+}
+
+}
+function showCrisisTip(action){
+
+const message =
+document.getElementById("crisisMessage");
+
+message.style.display = "block";
+
+if(action === "respirer"){
+
+message.innerHTML =
+"🫁 Prends une minute pour suivre l'exercice de respiration guidée. Inspire lentement puis expire doucement.";
+
+}
+
+else if(action === "eau"){
+
+message.innerHTML =
+"💧 Bois un verre d'eau et accorde-toi quelques minutes avant de prendre une décision.";
+
+}
+
+else if(action === "marcher"){
+
+message.innerHTML =
+"🚶 Fais quelques pas ou change momentanément d'environnement pour diminuer la tension.";
+
+}
+
+else if(action === "appeler"){
+
+message.innerHTML =
+"📞 Contacte une personne de confiance et partage ce que tu ressens.";
+
+}
+
+else if(action === "journal"){
+
+message.innerHTML =
+"✍️ Note tes émotions dans ton journal. Mettre des mots sur ce que l'on ressent aide souvent à prendre du recul.";
 
 }
 
