@@ -894,5 +894,793 @@ startBreathing();
 }
 </script>
 
+<!-- =====================================================
+     BOULI'MIEUX — EXTENSION DES NOUVELLES RUBRIQUES
+     À insérer avant </body>
+     Ne remplace pas le code existant.
+===================================================== -->
+
+<style>
+/* Styles isolés : extension Bouli'Mieux */
+.bm-extra {
+    --bm-primary: #2c3e50;
+    --bm-secondary: #34495e;
+    --bm-accent: #1abc9c;
+    --bm-light: #f3f8f7;
+    --bm-text: #344054;
+    font-family: inherit;
+    color: var(--bm-text);
+    margin: 35px auto;
+    max-width: 1100px;
+    padding: 15px;
+}
+
+.bm-extra * {
+    box-sizing: border-box;
+}
+
+.bm-extra .bm-heading {
+    text-align: center;
+    color: var(--bm-primary);
+    margin: 45px 0 12px;
+}
+
+.bm-extra .bm-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 25px;
+    line-height: 1.7;
+}
+
+.bm-extra .bm-card {
+    background: #fff;
+    border: 1px solid #e1eae8;
+    border-radius: 15px;
+    padding: 22px;
+    margin: 18px 0;
+    box-shadow: 0 3px 12px rgba(0,0,0,.045);
+}
+
+.bm-extra .bm-card h3 {
+    color: var(--bm-primary);
+    margin-top: 0;
+}
+
+.bm-extra .bm-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 15px;
+}
+
+.bm-extra label {
+    display: block;
+    font-weight: 600;
+    margin: 12px 0 6px;
+}
+
+.bm-extra input,
+.bm-extra select,
+.bm-extra textarea {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccd8d5;
+    border-radius: 8px;
+    font: inherit;
+    background: #fff;
+}
+
+.bm-extra textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+.bm-extra button {
+    border: none;
+    border-radius: 9px;
+    padding: 11px 18px;
+    background: var(--bm-accent);
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.bm-extra button:hover {
+    filter: brightness(.94);
+}
+
+.bm-extra .bm-secondary-btn {
+    background: var(--bm-primary);
+}
+
+.bm-extra .bm-note {
+    background: var(--bm-light);
+    border-left: 4px solid var(--bm-accent);
+    border-radius: 7px;
+    padding: 13px;
+    line-height: 1.6;
+    margin-top: 15px;
+}
+
+.bm-extra .bm-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    padding: 9px 0;
+    font-weight: normal;
+}
+
+.bm-extra .bm-option input {
+    width: auto;
+    margin-top: 4px;
+}
+
+.bm-extra .bm-result {
+    background: var(--bm-light);
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.bm-extra .bm-progress {
+    height: 12px;
+    border-radius: 20px;
+    background: #e7eeec;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.bm-extra .bm-progress-fill {
+    height: 100%;
+    width: 0;
+    background: var(--bm-accent);
+    transition: width .3s;
+}
+
+.bm-extra .bm-step {
+    padding: 13px;
+    border: 1px solid #e1eae8;
+    border-radius: 9px;
+    margin: 10px 0;
+}
+
+.bm-extra .bm-step label {
+    font-weight: normal;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.bm-extra .bm-step input {
+    width: auto;
+}
+
+.bm-extra .bm-entry {
+    border-bottom: 1px solid #e1eae8;
+    padding: 12px 0;
+}
+
+.bm-extra .bm-small {
+    font-size: .88rem;
+    color: #667085;
+}
+
+@media(max-width:600px) {
+    .bm-extra {
+        padding: 10px;
+    }
+    .bm-extra .bm-card {
+        padding: 16px;
+    }
+}
+</style>
+
+<div class="bm-extra" id="bm-new-modules">
+
+    <!-- 1. JOURNAL ALIMENTAIRE -->
+
+    <section id="bm-journal">
+        <h2 class="bm-heading">Mon journal alimentaire</h2>
+        <p class="bm-intro">
+            Un espace pour mieux comprendre ton vécu alimentaire,
+            sans jugement, sans calories et sans objectif de poids.
+        </p>
+
+        <div class="bm-card">
+            <h3>Comment s'est passé ce moment alimentaire ?</h3>
+
+            <form id="bm-food-form">
+                <label for="bm-food-date">Date</label>
+                <input type="date" id="bm-food-date" required>
+
+                <label for="bm-food-type">Moment de la journée</label>
+                <select id="bm-food-type" required>
+                    <option value="">Choisir</option>
+                    <option>Petit-déjeuner</option>
+                    <option>Déjeuner</option>
+                    <option>Dîner</option>
+                    <option>Collation</option>
+                    <option>Autre</option>
+                </select>
+
+                <label for="bm-hunger">Comment était ma faim ?</label>
+                <select id="bm-hunger">
+                    <option>Je ne sais pas</option>
+                    <option>Faible</option>
+                    <option>Modérée</option>
+                    <option>Importante</option>
+                </select>
+
+                <label for="bm-emotion">Quelle émotion ai-je ressentie ?</label>
+                <select id="bm-emotion">
+                    <option>Calme</option>
+                    <option>Stress</option>
+                    <option>Tristesse</option>
+                    <option>Colère</option>
+                    <option>Solitude</option>
+                    <option>Joie</option>
+                    <option>Anxiété</option>
+                    <option>Autre</option>
+                </select>
+
+                <label for="bm-context">Dans quel contexte ?</label>
+                <textarea id="bm-context"
+                    placeholder="Ex : après une journée stressante..."></textarea>
+
+                <label for="bm-after">Comment je me suis senti(e) après ?</label>
+                <textarea id="bm-after"
+                    placeholder="Décris librement ton ressenti..."></textarea>
+
+                <button type="submit">Enregistrer mon entrée</button>
+            </form>
+
+            <div class="bm-note">
+                Ce journal sert à observer ton expérience, pas à contrôler
+                tes prises alimentaires. Tu peux laisser des champs vides
+                si tu ne souhaites pas répondre.
+            </div>
+        </div>
+
+        <div class="bm-card">
+            <h3>Mes dernières entrées</h3>
+            <div id="bm-food-history">
+                <p class="bm-small">Aucune entrée enregistrée pour le moment.</p>
+            </div>
+            <button type="button" class="bm-secondary-btn"
+                id="bm-clear-food">Effacer mon journal</button>
+        </div>
+    </section>
+
+
+    <!-- 2. ÉQUILIBRE ALIMENTAIRE -->
+
+    <section id="bm-equilibre">
+        <h2 class="bm-heading">Retrouver mon équilibre alimentaire</h2>
+        <p class="bm-intro">
+            Comprendre l'importance d'une alimentation régulière
+            et sortir progressivement du cycle restriction-compensation.
+        </p>
+
+        <div class="bm-grid">
+
+            <div class="bm-card">
+                <h3>La régularité alimentaire</h3>
+                <p>
+                    Les repas et collations réguliers permettent de limiter
+                    les périodes de privation et de mieux répondre aux
+                    besoins de l'organisme.
+                </p>
+                <p>
+                    Dans la prise en charge de la boulimie, retrouver
+                    une structure alimentaire régulière constitue
+                    un élément important de l'accompagnement.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>Les restrictions alimentaires</h3>
+                <p>
+                    Sauter des repas, s'imposer des interdictions
+                    ou chercher à compenser après avoir mangé peut
+                    entretenir le cycle des crises.
+                </p>
+                <p>
+                    L'objectif est de retrouver progressivement
+                    une alimentation suffisamment variée et adaptée,
+                    avec l'aide d'un professionnel.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>Les aliments et la culpabilité</h3>
+                <p>
+                    Aucun aliment ne définit ta valeur personnelle.
+                    Manger un aliment apprécié ne constitue pas
+                    une faute et ne nécessite pas de compensation.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>Faim et satiété</h3>
+                <p>
+                    Les sensations de faim et de satiété peuvent
+                    être perturbées par les cycles de restriction
+                    et de crises.
+                </p>
+                <p>
+                    Elles peuvent être progressivement réexplorées
+                    dans un accompagnement adapté, sans obligation
+                    de ressentir des signaux parfaits.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="bm-note">
+            <strong>À retenir :</strong> le rétablissement ne consiste
+            pas à manger parfaitement. Il s'agit de retrouver une relation
+            plus sereine avec l'alimentation.
+        </div>
+    </section>
+
+
+    <!-- 3. COMPRENDRE MON CORPS -->
+
+    <section id="bm-corps">
+        <h2 class="bm-heading">Comprendre mon corps</h2>
+        <p class="bm-intro">
+            La boulimie peut avoir des conséquences sur plusieurs organes.
+            Découvre pourquoi il est important de prendre soin de ta santé.
+        </p>
+
+        <div class="bm-grid">
+
+            <div class="bm-card">
+                <h3>Le système digestif</h3>
+                <p>
+                    Les vomissements répétés peuvent provoquer une irritation
+                    de l'œsophage, des reflux et des douleurs digestives.
+                    Des complications plus graves sont également possibles.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>Les dents et la bouche</h3>
+                <p>
+                    L'exposition répétée à l'acidité gastrique peut
+                    entraîner une érosion de l'émail dentaire.
+                    Les glandes salivaires peuvent aussi augmenter de volume.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>Le cœur</h3>
+                <p>
+                    Les comportements compensatoires peuvent entraîner
+                    des déséquilibres électrolytiques, notamment
+                    une hypokaliémie, susceptibles de provoquer
+                    des troubles du rythme cardiaque.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>Les reins</h3>
+                <p>
+                    La déshydratation et les perturbations électrolytiques
+                    répétées peuvent affecter le fonctionnement rénal.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>Le système hormonal</h3>
+                <p>
+                    Les troubles alimentaires et les déséquilibres
+                    nutritionnels associés peuvent perturber
+                    certaines fonctions hormonales.
+                </p>
+            </div>
+
+            <div class="bm-card">
+                <h3>La santé psychologique</h3>
+                <p>
+                    La boulimie peut s'accompagner d'anxiété,
+                    de symptômes dépressifs, de honte et d'une
+                    altération de l'estime de soi.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="bm-note">
+            <strong>Important :</strong> les complications ne sont pas
+            systématiques et leur absence apparente ne signifie pas
+            qu'il n'existe aucun risque. Un suivi médical est essentiel.
+            En cas de malaise, palpitations importantes, douleur thoracique,
+            sang dans les vomissements ou douleur abdominale intense,
+            il faut consulter en urgence.
+        </div>
+    </section>
+
+
+    <!-- 4. MES ÉMOTIONS ET DÉCLENCHEURS -->
+
+    <section id="bm-emotions">
+        <h2 class="bm-heading">Comprendre mes déclencheurs</h2>
+        <p class="bm-intro">
+            Certaines situations peuvent être associées à une envie
+            de crise. Identifier ces situations peut aider à mieux
+            comprendre son vécu.
+        </p>
+
+        <div class="bm-card">
+            <h3>Qu'est-ce que je ressens actuellement ?</h3>
+
+            <p>Tu peux sélectionner plusieurs réponses.</p>
+
+            <div id="bm-trigger-options">
+                <label class="bm-option">
+                    <input type="checkbox" value="Stress">
+                    Stress ou pression
+                </label>
+
+                <label class="bm-option">
+                    <input type="checkbox" value="Solitude">
+                    Solitude
+                </label>
+
+                <label class="bm-option">
+                    <input type="checkbox" value="Tristesse">
+                    Tristesse
+                </label>
+
+                <label class="bm-option">
+                    <input type="checkbox" value="Colère">
+                    Colère ou frustration
+                </label>
+
+                <label class="bm-option">
+                    <input type="checkbox" value="Insatisfaction corporelle">
+                    Insatisfaction corporelle
+                </label>
+
+                <label class="bm-option">
+                    <input type="checkbox" value="Restriction alimentaire">
+                    Restriction alimentaire
+                </label>
+
+                <label class="bm-option">
+                    <input type="checkbox" value="Fatigue">
+                    Fatigue
+                </label>
+
+                <label class="bm-option">
+                    <input type="checkbox" value="Anxiété">
+                    Anxiété
+                </label>
+            </div>
+
+            <button type="button" id="bm-analyze-trigger">
+                Explorer mes ressentis
+            </button>
+
+            <div id="bm-trigger-result" class="bm-result" hidden></div>
+        </div>
+
+        <div class="bm-card">
+            <h3>Quelques stratégies pour traverser un moment difficile</h3>
+
+            <div class="bm-grid">
+                <div>
+                    <h4>Respirer</h4>
+                    <p>Prendre quelques respirations lentes et confortables.</p>
+                </div>
+
+                <div>
+                    <h4>Exprimer</h4>
+                    <p>Écrire ce que l'on ressent ou en parler à une personne de confiance.</p>
+                </div>
+
+                <div>
+                    <h4>Se reconnecter</h4>
+                    <p>Choisir une activité apaisante et adaptée à ses besoins.</p>
+                </div>
+
+                <div>
+                    <h4>Demander de l'aide</h4>
+                    <p>Contacter son professionnel de santé si la situation devient difficile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- 5. MON PARCOURS DE RÉTABLISSEMENT -->
+
+    <section id="bm-parcours">
+        <h2 class="bm-heading">Mon parcours de rétablissement</h2>
+        <p class="bm-intro">
+            Le rétablissement est un cheminement personnel.
+            Chaque étape mérite d'être reconnue.
+        </p>
+
+        <div class="bm-card">
+            <h3>Mes étapes personnelles</h3>
+
+            <div class="bm-progress">
+                <div class="bm-progress-fill" id="bm-progress-fill"></div>
+            </div>
+
+            <p id="bm-progress-label">0 étape sur 5 validée</p>
+
+            <div class="bm-step">
+                <label>
+                    <input type="checkbox" class="bm-recovery-step">
+                    Je comprends mieux la boulimie.
+                </label>
+            </div>
+
+            <div class="bm-step">
+                <label>
+                    <input type="checkbox" class="bm-recovery-step">
+                    J'identifie certaines de mes émotions.
+                </label>
+            </div>
+
+            <div class="bm-step">
+                <label>
+                    <input type="checkbox" class="bm-recovery-step">
+                    Je comprends l'importance de la régularité alimentaire.
+                </label>
+            </div>
+
+            <div class="bm-step">
+                <label>
+                    <input type="checkbox" class="bm-recovery-step">
+                    J'identifie des personnes auprès desquelles demander de l'aide.
+                </label>
+            </div>
+
+            <div class="bm-step">
+                <label>
+                    <input type="checkbox" class="bm-recovery-step">
+                    Je reconnais mes besoins et mes progrès.
+                </label>
+            </div>
+
+            <div class="bm-note">
+                Ces étapes sont des pistes de réflexion, pas des critères
+                de guérison. Tu peux avancer à ton rythme et revenir
+                sur une étape à tout moment.
+            </div>
+        </div>
+
+        <div class="bm-card">
+            <h3>Mon objectif personnel</h3>
+
+            <label for="bm-personal-goal">
+                Une chose que j'aimerais travailler :
+            </label>
+
+            <textarea id="bm-personal-goal"
+                placeholder="Ex : apprendre à exprimer mes émotions..."></textarea>
+
+            <button type="button" id="bm-save-goal">
+                Enregistrer mon objectif
+            </button>
+
+            <p id="bm-goal-message" aria-live="polite"></p>
+        </div>
+    </section>
+
+    <div class="bm-card">
+        <h3>Un dernier message</h3>
+        <p>
+            Tu n'as pas besoin d'être parfait(e) pour avancer.
+            La boulimie est un trouble qui nécessite un accompagnement
+            adapté. Demander de l'aide est une démarche importante,
+            et tu n'as pas à traverser cette situation seul(e).
+        </p>
+    </div>
+
+</div>
+
+
+<script>
+/* =====================================================
+   JAVASCRIPT — MODULES BOULI'MIEUX
+===================================================== */
+
+(function () {
+    "use strict";
+
+    const PREFIX = "bouliMieuxExtra_";
+
+    function getData(key, fallback) {
+        try {
+            const value = localStorage.getItem(PREFIX + key);
+            return value ? JSON.parse(value) : fallback;
+        } catch (error) {
+            return fallback;
+        }
+    }
+
+    function saveData(key, value) {
+        try {
+            localStorage.setItem(PREFIX + key, JSON.stringify(value));
+            return true;
+        } catch (error) {
+            alert("Impossible d'enregistrer les données sur cet appareil.");
+            return false;
+        }
+    }
+
+    /* JOURNAL ALIMENTAIRE */
+
+    const foodForm = document.getElementById("bm-food-form");
+    const history = document.getElementById("bm-food-history");
+
+    function displayFoodEntries() {
+        const entries = getData("foodEntries", []);
+
+        history.innerHTML = "";
+
+        if (!entries.length) {
+            history.textContent = "Aucune entrée enregistrée pour le moment.";
+            return;
+        }
+
+        entries.slice().reverse().forEach((entry, index) => {
+            const article = document.createElement("div");
+            article.className = "bm-entry";
+
+            const title = document.createElement("strong");
+            title.textContent = entry.date + " — " + entry.type;
+
+            const emotion = document.createElement("p");
+            emotion.textContent = "Émotion : " + entry.emotion;
+
+            const context = document.createElement("p");
+            context.textContent = "Contexte : " + (entry.context || "Non renseigné");
+
+            const after = document.createElement("p");
+            after.textContent = "Ressenti : " + (entry.after || "Non renseigné");
+
+            article.append(title, emotion, context, after);
+            history.appendChild(article);
+        });
+    }
+
+    foodForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const entry = {
+            date: document.getElementById("bm-food-date").value,
+            type: document.getElementById("bm-food-type").value,
+            hunger: document.getElementById("bm-hunger").value,
+            emotion: document.getElementById("bm-emotion").value,
+            context: document.getElementById("bm-context").value,
+            after: document.getElementById("bm-after").value
+        };
+
+        const entries = getData("foodEntries", []);
+        entries.push(entry);
+
+        if (saveData("foodEntries", entries)) {
+            foodForm.reset();
+            displayFoodEntries();
+            alert("Ton entrée a été enregistrée.");
+        }
+    });
+
+    document.getElementById("bm-clear-food")
+        .addEventListener("click", function () {
+            if (confirm("Veux-tu vraiment effacer toutes tes entrées ?")) {
+                localStorage.removeItem(PREFIX + "foodEntries");
+                displayFoodEntries();
+            }
+        });
+
+    displayFoodEntries();
+
+
+    /* DÉCLENCHEURS ÉMOTIONNELS */
+
+    document.getElementById("bm-analyze-trigger")
+        .addEventListener("click", function () {
+
+            const selected = Array.from(
+                document.querySelectorAll(
+                    "#bm-trigger-options input:checked"
+                )
+            ).map(input => input.value);
+
+            const result = document.getElementById("bm-trigger-result");
+
+            result.hidden = false;
+            result.replaceChildren();
+
+            const heading = document.createElement("strong");
+            heading.textContent = "Ton exploration personnelle";
+
+            const paragraph = document.createElement("p");
+
+            if (selected.length === 0) {
+                paragraph.textContent =
+                    "Tu n'as rien sélectionné. Tu peux prendre un moment " +
+                    "pour observer ce que tu ressens, sans te forcer à trouver une réponse.";
+            } else {
+                paragraph.textContent =
+                    "Tu as identifié : " + selected.join(", ") +
+                    ". Ces ressentis peuvent être des éléments de ton expérience. " +
+                    "Ils ne constituent pas un diagnostic.";
+            }
+
+            const advice = document.createElement("p");
+            advice.textContent =
+                "Prends un moment pour reconnaître ce que tu ressens. " +
+                "Tu peux en parler à une personne de confiance ou à ton professionnel de santé.";
+
+            result.append(heading, paragraph, advice);
+        });
+
+
+    /* PARCOURS DE RÉTABLISSEMENT */
+
+    const steps = document.querySelectorAll(".bm-recovery-step");
+    const progress = document.getElementById("bm-progress-fill");
+    const progressLabel = document.getElementById("bm-progress-label");
+
+    function updateProgress() {
+        const total = steps.length;
+        const checked = Array.from(steps).filter(step => step.checked).length;
+
+        progress.style.width = (checked / total * 100) + "%";
+
+        progressLabel.textContent =
+            checked + " étape(s) sur " + total + " validée(s)";
+
+        saveData(
+            "recoverySteps",
+            Array.from(steps).map(step => step.checked)
+        );
+    }
+
+    const savedSteps = getData("recoverySteps", []);
+
+    steps.forEach((step, index) => {
+        step.checked = savedSteps[index] === true;
+        step.addEventListener("change", updateProgress);
+    });
+
+    updateProgress();
+
+
+    /* OBJECTIF PERSONNEL */
+
+    const goalInput = document.getElementById("bm-personal-goal");
+    const goalMessage = document.getElementById("bm-goal-message");
+
+    goalInput.value = getData("personalGoal", "");
+
+    document.getElementById("bm-save-goal")
+        .addEventListener("click", function () {
+
+            const goal = goalInput.value.trim();
+
+            if (!goal) {
+                goalMessage.textContent =
+                    "Tu peux écrire un objectif avant de l'enregistrer.";
+                return;
+            }
+
+            if (saveData("personalGoal", goal)) {
+                goalMessage.textContent = "Ton objectif a été enregistré.";
+            }
+        });
+
+})();
+</script>
+
 </body>
 </html>
