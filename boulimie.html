@@ -698,6 +698,66 @@ document.getElementById("timer")
 "60";
 
 }
+    let niveauArbre = 1;
+
+function growTree(){
+
+niveauArbre++;
+
+let arbre =
+document.getElementById("tree");
+
+let message =
+document.getElementById("tree-message");
+
+if(niveauArbre == 2){
+
+arbre.innerHTML = "🌿";
+
+message.innerHTML =
+"Niveau 2 - Je reconnais mes émotions";
+
+}
+
+else if(niveauArbre == 3){
+
+arbre.innerHTML = "🪴";
+
+message.innerHTML =
+"Niveau 3 - J'utilise mes outils anti-crise";
+
+}
+
+else if(niveauArbre == 4){
+
+arbre.innerHTML = "🌳";
+
+message.innerHTML =
+"Niveau 4 - Je prends soin de moi";
+
+}
+
+else if(niveauArbre == 5){
+
+arbre.innerHTML = "🌸🌳";
+
+message.innerHTML =
+"Niveau 5 - Je progresse chaque jour";
+
+}
+
+else{
+
+arbre.innerHTML = "🌸🌳🦋";
+
+message.innerHTML =
+"Niveau 6 - Je cultive mon bien-être";
+
+niveauArbre = 6;
+
+}
+
+}
 </script>
 
 </body>
