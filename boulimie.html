@@ -573,27 +573,34 @@ document.getElementById("journal").value
 );
 
 alert("Journal enregistré ✅");
+
 }
 
-window.onload=function(){
+window.onload = function(){
 
-let texte=localStorage.getItem("journalBoulimie");
+let texte =
+localStorage.getItem("journalBoulimie");
 
 if(texte){
-document.getElementById("journal").value=texte;
+document.getElementById("journal").value =
+texte;
 }
 
 }
 
 function corrigerQuiz(){
 
-let score=0;
+let score = 0;
 
-document.querySelectorAll("input[type=radio]:checked")
-.forEach(radio=>score+=parseInt(radio.value));
+document.querySelectorAll(
+"input[type=radio]:checked"
+).forEach(radio =>
+score += parseInt(radio.value)
+);
 
-document.getElementById("score").innerHTML=
-"🎉 Votre score : "+score+"/3";
+document.getElementById("score").innerHTML =
+"🎉 Votre score : " + score + "/3";
+
 }
 
 let compteur;
@@ -601,55 +608,63 @@ let respiration;
 
 function startBreathing(){
 
-let compteur;
-let respiration;
+let flower =
+document.getElementById("flower");
 
-function startBreathing(){
+let instruction =
+document.getElementById("instruction");
 
-let flower=document.getElementById("flower");
-let instruction=document.getElementById("instruction");
-let timer=document.getElementById("timer");
+let timer =
+document.getElementById("timer");
 
-let temps=60;
+let temps = 60;
 
 clearInterval(compteur);
 clearInterval(respiration);
 
-timer.innerHTML="60";
+timer.innerHTML = "60";
 
-instruction.innerHTML="🫁 Inspire profondément";
+instruction.innerHTML =
+"🫁 Inspire profondément";
 
-flower.classList.remove("inhale","exhale");
+flower.classList.remove(
+"inhale",
+"exhale"
+);
+
 flower.classList.add("inhale");
 
-compteur=setInterval(()=>{
+compteur = setInterval(() => {
 
 temps--;
 
-timer.innerHTML=temps;
+timer.innerHTML = temps;
 
-if(temps<=0){
+if(temps <= 0){
 
 clearInterval(compteur);
 clearInterval(respiration);
 
-instruction.innerHTML=
+instruction.innerHTML =
 "🌷 Bravo ! Tu as terminé cette séance.";
 
-timer.innerHTML="✓";
+timer.innerHTML = "✓";
 
-flower.classList.remove("inhale","exhale");
+flower.classList.remove(
+"inhale",
+"exhale"
+);
 
 }
 
 },1000);
 
-respiration=setInterval(()=>{
+respiration = setInterval(() => {
 
 flower.classList.toggle("inhale");
 flower.classList.toggle("exhale");
 
-instruction.innerHTML=
+instruction.innerHTML =
 flower.classList.contains("inhale")
 ? "🫁 Inspire profondément"
 : "😌 Expire doucement";
@@ -666,15 +681,12 @@ clearInterval(respiration);
 document.getElementById("flower")
 .classList.remove("inhale","exhale");
 
-document.getElementById("instruction").innerHTML=
+document.getElementById("instruction")
+.innerHTML =
 "🌸 Séance arrêtée";
 
-document.getElementById("timer").innerHTML=
-"60";
-
-}
-
-document.getElementById("timer").innerHTML=
+document.getElementById("timer")
+.innerHTML =
 "60";
 
 }
