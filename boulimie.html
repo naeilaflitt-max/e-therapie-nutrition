@@ -844,7 +844,8 @@ message.style.display = "block";
 if(action === "respirer"){
 
 message.innerHTML =
-"🫁 Prends une minute pour suivre l'exercice de respiration guidée. Inspire lentement puis expire doucement.";
+"🫁 Prends quelques instants pour respirer calmement.<br><br>" +
+"<button class='savebtn' onclick='launchBreathing()'>🌸 Commencer la respiration guidée</button>";
 
 }
 
@@ -875,6 +876,20 @@ message.innerHTML =
 "✍️ Note tes émotions dans ton journal. Mettre des mots sur ce que l'on ressent aide souvent à prendre du recul.";
 
 }
+
+}
+function launchBreathing(){
+
+document.querySelector(".breathing")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+setTimeout(() => {
+
+startBreathing();
+
+},800);
 
 }
 </script>
