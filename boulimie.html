@@ -566,7 +566,6 @@ Tu mérites de prendre soin de toi.
 </footer>
 
 <script>
-
 function showMessage(type){
 
 const message =
@@ -608,6 +607,8 @@ localStorage.setItem(
 document.getElementById("journal").value
 );
 
+growTree();
+
 alert("Journal enregistré ✅");
 
 }
@@ -636,6 +637,10 @@ score += parseInt(radio.value)
 
 document.getElementById("score").innerHTML =
 "🎉 Votre score : " + score + "/3";
+
+if(score >= 2){
+growTree();
+}
 
 }
 
@@ -691,6 +696,8 @@ flower.classList.remove(
 "exhale"
 );
 
+growTree();
+
 }
 
 },1000);
@@ -726,7 +733,8 @@ document.getElementById("timer")
 "60";
 
 }
-    let niveauArbre = 1;
+
+let niveauArbre = 1;
 
 function growTree(){
 
@@ -738,39 +746,39 @@ document.getElementById("tree");
 let message =
 document.getElementById("tree-message");
 
-if(niveauArbre == 2){
+if(niveauArbre === 2){
 
 arbre.innerHTML = "🌿";
 
 message.innerHTML =
-"Niveau 2 - Je reconnais mes émotions";
+"🌿 Je reconnais mes émotions";
 
 }
 
-else if(niveauArbre == 3){
+else if(niveauArbre === 3){
 
 arbre.innerHTML = "🪴";
 
 message.innerHTML =
-"Niveau 3 - J'utilise mes outils anti-crise";
+"🪴 J'utilise mes outils anti-crise";
 
 }
 
-else if(niveauArbre == 4){
+else if(niveauArbre === 4){
 
 arbre.innerHTML = "🌳";
 
 message.innerHTML =
-"Niveau 4 - Je prends soin de moi";
+"🌳 Je prends soin de moi chaque jour";
 
 }
 
-else if(niveauArbre == 5){
+else if(niveauArbre === 5){
 
 arbre.innerHTML = "🌸🌳";
 
 message.innerHTML =
-"Niveau 5 - Je progresse chaque jour";
+"🌸 Je progresse avec bienveillance";
 
 }
 
@@ -779,7 +787,7 @@ else{
 arbre.innerHTML = "🌸🌳🦋";
 
 message.innerHTML =
-"Niveau 6 - Je cultive mon bien-être";
+"🌸🦋 Je cultive mon bien-être";
 
 niveauArbre = 6;
 
